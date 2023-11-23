@@ -1,0 +1,15 @@
+/* CHECKED */
+
+/* if element with class actions is empty, we will not display anything - hide it */
+.actions:empty {
+    display: none;
+}
+
+.actions-default {
+    display: none;
+}
+
+/* if element with class actions is empty and there is a sibling of .actions class element with class .actions-default, we will display */
+.actions:empty+.actions-default {
+    display: block;
+}

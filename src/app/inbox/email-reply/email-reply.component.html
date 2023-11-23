@@ -1,0 +1,13 @@
+<!-- CHECKED -->
+
+<button (click)="showModal = true" class="ui button primary">
+    Reply
+</button>
+
+<app-modal *ngIf="showModal" (dismiss)="showModal = false">
+    <div modalTitle>Reply</div>
+
+    <!-- add this [email]="email" property binding to add some start initial email to use by passing the email object further from email-reply component to email-form component (the email was initially passed to email-reply component from email-show component) -->
+    <app-email-form [email]="email" (emailSubmit)="onSubmit($event)">
+    </app-email-form>
+</app-modal>

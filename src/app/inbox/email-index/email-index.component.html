@@ -1,0 +1,22 @@
+<!-- CHECKED -->
+
+<div class="ui celled list">
+    <!-- use the ngFor directive to render the list of emails by parsing the emails array -->
+    <div class="item" *ngFor="let email of emails">
+        <!-- use the routerLink directive to navigate to the email details page -->
+        <!-- use the routerLinkActive directive to highlight the active link => will add a class "active" in this case which can then be styled with CSS -->
+        <!-- use routerLink to anchor a dynamic link url -->
+        <a [routerLink]="email.id" routerLinkActive="active">
+            <div class="content">
+                <div class="header trim">
+                    <!-- use string interpolation to render the subject of the email -->
+                    {{ email.subject }}
+                </div>
+                <p class="trim">
+                    <!-- use string interpolation to render the from field of the email -->
+                    {{ email.from }}
+                </p>
+            </div>
+        </a>
+    </div>
+</div>

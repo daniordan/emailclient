@@ -1,0 +1,35 @@
+<!--  CHECKED -->
+
+<div (click)="onDismissClick()" class="ui dimmer visible active">
+    <!-- use stopPropagation to prevent the click event from bubbling up to the parent element, to prevent the user leaving the Modal window when clicking anywhere else -->
+    <!-- In the provided code snippet, (click)="$event.stopPropagation()" is an event binding in Angular. It is used to prevent the click event from bubbling up to its parent elements.
+
+    The click event normally bubbles up through the DOM hierarchy. This means that if you have nested elements with click event handlers, the click event will trigger all the handlers starting from the innermost element and then propagate up to the outermost element.
+
+    By using $event.stopPropagation(), you can stop this propagation. When the element with this event binding is clicked, the event will not bubble up any further, and the click event will not trigger any click event handlers on its parent elements.
+
+    This can be useful in scenarios where you want to handle a click event on a specific element without triggering any click event handlers on its parent elements. -->
+    <!-- In the context of Angular event bindings, $event is a special variable that represents the event object passed to the event handler function.
+
+    When an event is triggered, such as a click event, Angular automatically passes an event object to the event handler function. This event object contains information about the event, such as the target element, coordinates, and other event-specific properties.
+
+    By using the $event variable in the event binding expression, you can access and work with this event object in your event handler function. For example, you can access the target element of the event, prevent its default behavior, or stop the event propagation as we discussed earlier. -->
+    <div (click)="$event.stopPropagation()" class="ui modal visible active">
+        <!-- The <i> element in the provided code snippet is used to create an icon. It is commonly used along with CSS frameworks like Semantic UI or Font Awesome to display icons on a webpage. In this case, the class="close icon" attribute specifies the CSS classes to apply to the <i> element, which would typically define the visual appearance of the icon.
+        The (click)="onDismissClick()" attribute is an event binding in Angular. It binds the click event of the <i> element to the onDismissClick() method in the component class. So when the <i> element is clicked, the onDismissClick() method will be executed. -->
+        <i class="close icon" (click)="onDismissClick()"></i>
+        <div class="header">
+            <!-- This code snippet is using Angular's <ng-content> directive with the select attribute set to [modalTitle]. It is used to project content from the parent component into this component, specifically any elements with the [modalTitle] attribute. -->
+            <ng-content select="[modalTitle]"></ng-content>
+        </div>
+        <div class="content">
+            <ng-content></ng-content>
+        </div>
+        <div class="actions actions-default">
+            <button (click)="onDismissClick()" class="ui button primary">Ok</button>
+        </div>
+        <div class="actions">
+            <ng-content select="[modalFooter]"></ng-content>
+        </div>
+    </div>
+</div>

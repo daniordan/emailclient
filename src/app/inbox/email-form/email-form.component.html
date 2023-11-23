@@ -1,0 +1,19 @@
+<!-- CHECKED -->
+
+<!-- This code snippet is using Angular's ngSubmit directive to bind the "onSubmit()" method to a form submission event. When the form is submitted, the "onSubmit()" method will be executed. -->
+<form (ngSubmit)="onSubmit()" class="ui form" [formGroup]="emailForm">
+    <app-input [control]="getFormControl('to')" inputType="email" label="To">
+    </app-input>
+
+    <app-input [control]="getFormControl('from')" inputType="email" label="From">
+    </app-input>
+
+    <app-input [control]="getFormControl('subject')" inputType="text" label="Subject">
+    </app-input>
+
+    <!-- use textarea as controlType instead of input type "text" to have more space for the content of the email -->
+    <app-input controlType="textarea" [control]="getFormControl('text')" label="Content">
+    </app-input>
+
+    <button class="ui button primary">Send</button>
+</form>

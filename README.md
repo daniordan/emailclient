@@ -1,6 +1,32 @@
-# Emailclient
+# Emailclient AngularJS App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
+
+## Prerequisites
+
+You need to have npm and Angular CLI installed in your pc. Npm is available with NodeJS in [here](https://nodejs.org/en). After you install npm, install Angular CLI by typing the following command in your terminal
+
+```bash
+npm install -g @angular/cli
+```
+
+### Installing
+
+Just clone the repo and execute the following command inside the folder project
+
+```bash
+npm install
+```
+
+### All done!!
+
+Now just run
+
+```
+npm start
+```
+
+Wait to compile and go to [http://localhost:4200](http://localhost:4200) after compile finish
 
 ## Development server
 

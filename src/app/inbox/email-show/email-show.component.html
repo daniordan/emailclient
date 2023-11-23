@@ -1,0 +1,23 @@
+<!-- CHECKED -->
+
+<!-- add *ngIf="email" to check if email exists to fix the undefined email error - until email is fetched from the request - this is one way to fix it; the right way to fx this is using a Resolver (check EmailResolver service) -->
+<div class="header">
+    <div>
+        <h3>{{ email.subject }}</h3>
+        <div>
+            From: <i>{{ email.from }}</i>
+        </div>
+        <div>
+            To: <i>{{ email.to }}</i>
+        </div>
+    </div>
+    <div>
+        <!-- add [email]="email" property binding to pass in the email to the email object to the reply component -->
+        <app-email-reply [email]="email"></app-email-reply>
+    </div>
+</div>
+<div class="ui divider"></div>
+<!-- render the html property to ensure we capture all data, including images etc which are contained in the html property of tha email response -->
+<!-- we cannot use the string interpolation ( {{ email.html }}) to render this because we will get the raw data of the html (with tags and html elements visible) -->
+<!-- we will use the bound property of innerHTML when we want to render html stuff not string interpolation -->
+<div [innerHTML]="email.html"></div>

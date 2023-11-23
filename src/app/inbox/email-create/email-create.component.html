@@ -1,0 +1,17 @@
+<!-- CHECKED -->
+
+<!-- use event binding to trigger the modal / show the modal only if the showModal property is true -->
+<button (click)="showModal = true" class="ui button inverted primary fluid">
+    Compose
+</button>
+
+<!-- This code represents an HTML template for an Angular application. It creates a modal component that is displayed when the showModal variable is true. The dismiss event is bound to a function that sets showModal to false when triggered. -->
+<!-- the dismiss event is defined in the modal class component in the modal.component.ts: @Output() dismiss = new EventEmitter(); and it is passed with the child - parent component communication -->
+<app-modal (dismiss)="showModal = false" *ngIf="showModal">
+    <div modalTitle>Compose</div>
+    <!-- add an event handler for emailSubmit event from the email form; any time the event occurs the onSubmit method will be called which will make the post request to sent the email to the email API server/service-->
+    <!-- use "$event" with "$" sign in front of it to capture the emailSubmit event and pass it to the onSubmit method which will handle the event by making the post request -->
+    <!-- add this [email]="email" property binding to add some start initial email to use -->
+    <app-email-form (emailSubmit)="onSubmit($event)" [email]="email">
+    </app-email-form>
+</app-modal>

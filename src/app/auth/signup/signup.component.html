@@ -1,0 +1,50 @@
+<!-- CHECKED
+
+Add three inputs and bind each of these controls defined in the class component (username, password,
+passwordConfirmation) to those three inputs -->
+
+<h3>Sign Up</h3>
+<!-- Add in a <form>         element to the template -->
+<!-- Bind the FormGroup to the form -->
+<!-- event binding ngSubmit => Emits an event when the form submission has been triggered and call the onSubmit() class component method -->
+<form (ngSubmit)="onSubmit()" class="ui form" [formGroup]="authForm">
+    <!-- Add three inputs and bind each of these controls defined in the class component (username, password,
+    passwordConfirmation) to those three inputs -->
+    <!-- use inputType="text" and label="Username" and [control]="authForm.get('username')" to pass down attributes/properties to the input component to bind the username input to the username field in the form (parent component - signup -> child component - input communication) -->
+    <!-- This code is an HTML snippet that includes a custom component called "app-input". It sets the inputType attribute to "text", label attribute to "Username", and binds the [control] property to the value of "authForm.get('username')". -->
+    <!-- This code snippet is an example of an HTML template that uses a custom component called "app-input".
+
+The <app-input> component is being used to create an input field for the user to enter their username.
+
+The inputType attribute is set to "text", indicating that the input field should accept plain text input.
+The label attribute is set to "Username", which will be displayed as a label for the input field.
+The [control] property is binding the value of the input field to the result of the authForm.get('username') expression. It is likely that authForm is a form group or form control object that is used to manage and validate form data. By binding the input field to this expression, any changes made to the input field will update the corresponding property in the form control object.
+Overall, this code snippet is creating an input field for the username using a custom component and binding it to a form control object for further processing. -->
+    <app-input inputType="text" label="Username" [control]="getFormControl('username')"></app-input>
+    <app-input inputType="password" label="Password" [control]="getFormControl('password')"></app-input>
+    <app-input inputType="password" label="Password Confirmation"
+        [control]="getFormControl('passwordConfirmation')"></app-input>
+
+    <!--  error handling using the validators results and using ngIf structural directive and calling the errors objects from the overall form object (the FormGroup - fields) -->
+    <div *ngIf="authForm.get('password')?.touched && authForm.get('passwordConfirmation')?.touched && authForm.errors"
+        class="ui red basic label">
+        <p *ngIf="authForm.errors?.['passwordsDontMatch']">
+            Password and Password Confirmation must match
+        </p>
+        <p *ngIf="authForm.errors?.['noConnection']">
+            No internet connection detected, failed to sign up
+        </p>
+        <p *ngIf="authForm.errors?.['unknownError']">
+            Failed to sign up
+        </p>
+    </div>
+
+    <div>
+        <button class="ui submit button primary">
+            Submit
+        </button>
+    </div>
+
+    <!--  Use this only for debugging, not in production -->
+    <!-- {{ authForm.errors | json }} -->
+</form>

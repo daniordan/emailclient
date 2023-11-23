@@ -1,1 +1,3 @@
 /* You can add global styles to this file, and also import other style files */
+/* Import semantic-ui CSS library - you can chack the node_modules dir for the paths */
+@import 'semantic-ui-css/semantic.css';
