@@ -1,5 +1,7 @@
 # Emailclient Angular App
 
+Email client application. Main features: sign up (creates a new account on a backend server), sign in, sign out (the user has the ability to sign in again with the new account created), access to inbox, user is able to receive and send real emails, mail details view, compose, replay to emails.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
 
 ## Prerequisites
